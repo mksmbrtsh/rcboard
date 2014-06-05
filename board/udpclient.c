@@ -47,6 +47,7 @@ void * udp_client_loop (void *arg) {
 
         if (recv_len = recvfrom(udpsocket, buf, BUFLEN, 0, (struct sockaddr *) &si_other, &slen) == -1) {
 			fprintf(stderr, "recvfrom() failed\n");
+			stopAll ();
         }
 
 		if (recv_len > -1) {
@@ -69,7 +70,6 @@ void udp_server_loop (void * arg) {
     if ( (udpsocket = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP)) == -1)
     {
 	    fprintf(stderr, "socket() failed\n");
-    	exit(1);
     }
      
     /* clear structure */
@@ -94,6 +94,7 @@ void udp_server_loop (void * arg) {
          
         if (recv_len = recvfrom(udpsocket, buf, BUFLEN, 0, (struct sockaddr *) &si_other, &slen) == -1) {
 			fprintf(stderr, "recvfrom() failed\n");
+			stopAll ();
         } 
 
 		if (recv_len > -1) {
@@ -118,7 +119,6 @@ void udp_client_send (char * message, int length) {
 
 	if (sendto(udpsocket, message, length, 0, (struct sockaddr *) &si_other, slen) == -1) {
 		fprintf(stderr, "sendto() failed\n");
-		exit(1);
 	}
 
 }

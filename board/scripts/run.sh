@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# turn on camera HD mode
+
+/opt/hd_final.sh
+
 #read params from config
 . ./config.sh
 
@@ -31,3 +35,31 @@ if [ $SENDHOST != "127.0.0.1" ] ;
 then
 	gst-client -p 0 play > /dev/null 2>&1
 fi
+
+# run loop
+
+if [ "$CONFIG" == "remote" ] ;
+then
+	PARAMS="-a $ADDRESS -u $USER -p $HASH"
+else
+	PARAMS=
+fi
+
+quit()
+{
+    echo "" > /tmp/onair
+    exit 1
+}
+trap quit INT
+
+while [ 1 ]
+do
+	echo "FPV" > /tmp/onair
+	./rcboard  $PARAMS
+	gst-client -p 0 pause
+	echo "" > /tmp/onair
+	sleep 1
+
+done
+
+echo "" > /tmp/onair
