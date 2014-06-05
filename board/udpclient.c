@@ -94,7 +94,7 @@ void udp_server_loop (void * arg) {
          
         if (recv_len = recvfrom(udpsocket, buf, BUFLEN, 0, (struct sockaddr *) &si_other, &slen) == -1) {
 			fprintf(stderr, "recvfrom() failed\n");
-			stopAll ();
+			stopAll();
         } 
 
 		if (recv_len > -1) {
@@ -119,6 +119,7 @@ void udp_client_send (char * message, int length) {
 
 	if (sendto(udpsocket, message, length, 0, (struct sockaddr *) &si_other, slen) == -1) {
 		fprintf(stderr, "sendto() failed\n");
+		stopAll();
 	}
 
 }
