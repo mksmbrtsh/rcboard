@@ -33,6 +33,7 @@ void parseCommand(char * buf) {
 			/* alive */
 			clock_gettime(CLOCK_MONOTONIC, &time);
 			aliveTimestamp = time.tv_sec;
+			if (config.verbose) printf("* get alive!\n");
 		break;
 
 		case 1:

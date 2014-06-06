@@ -105,7 +105,7 @@ int main(int argc, char * argv[])
 		/* send signal status */
 		SendSignalStatus();
 
-		usleep(1000000);
+		usleep(ALIVETIMERPERIOD);
 
 	}
 
