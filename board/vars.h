@@ -1,7 +1,7 @@
 #define IPADDRMAXLEN 512
 #define REQUESTMAXLEN 512
 
-#define ALIVETIMERPERIOD	500000
+#define ALIVETIMERPERIOD	300000
 #define STATUS_DELAY	3000000
 
 #define CON_WIFI	1
@@ -80,6 +80,9 @@ double system_voltage;
 
 /* video need start flag */
 int videoneedstart;
+
+/* if client can show video - clienttype = 1, if can't = 0 */
+unsigned char clienttype;
 
 
 /* temp variable for override config file verbose param */

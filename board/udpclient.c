@@ -52,12 +52,13 @@ void * udp_client_loop (void *arg) {
 
 		if (recv_len > -1) {
 
+			parseCommand(buf);
+
 			/* get remote host:port*/
 			remote_host = inet_ntoa(si_other.sin_addr);
 			remote_port = ntohs(si_other.sin_port);
 			CheckRemoteClient(remote_host, remote_port);
 		
-			parseCommand(buf);
 		}
     }
 
@@ -99,12 +100,13 @@ void udp_server_loop (void * arg) {
 
 		if (recv_len > -1) {
 
+			parseCommand(buf);
+
 			/* get remote host:port*/
 			remote_host = inet_ntoa(si_other.sin_addr);
 			remote_port = ntohs(si_other.sin_port);
 			CheckRemoteClient(remote_host, remote_port);
 
-			parseCommand(buf);
 		}
         
     }
@@ -156,8 +158,10 @@ void CheckRemoteClient(char * remote_host, int remote_port) {
 
 void ClientDisconnected() {
 
+	videoneedstart = 1;
+	clienttype = 0;
+
 	/* pause video stream */
 	PauseStream();
 
-	videoneedstart = 1;
 }

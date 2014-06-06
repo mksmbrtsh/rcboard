@@ -31,9 +31,15 @@ void parseCommand(char * buf) {
 	switch (buf[0]) {
 		case 0:
 			/* alive */
+			checksum =  buf[0] ^ buf[1];
+			if (checksum != buf[2]) return;
+			clienttype = buf[1];
+
+			if (config.verbose)
+				printf("* client (type = %d) alive!\n", clienttype);
+
 			clock_gettime(CLOCK_MONOTONIC, &time);
 			aliveTimestamp = time.tv_sec;
-			if (config.verbose) printf("* get alive!\n");
 		break;
 
 		case 1:
