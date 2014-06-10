@@ -15,6 +15,10 @@ int load_config (void) {
 
 	cfg_opt_t opts[] =
 	{
+		CFG_INT("bitrate", "600000", CFGF_NONE),
+		CFG_INT("mtu", "1500", CFGF_NONE),
+		CFG_STR("initialhost", "127.0.0.1", CFGF_NONE),
+		CFG_INT("videoport", "3000", CFGF_NONE),
 		CFG_INT("devicetype", "0", CFGF_NONE),
 		CFG_STR("role", "server", CFGF_NONE),
 		CFG_STR("server_addr", "127.0.0.1", CFGF_NONE),
@@ -89,6 +93,10 @@ int load_config (void) {
 		config.role = 0;
 	}
 
+	config.bitrate = cfg_getint(cfg, "bitrate");
+	config.mtu = cfg_getint(cfg, "mtu");
+	sprintf(config.initialhost, "%s", cfg_getstr(cfg, "initialhost"));
+	config.videoport = cfg_getint(cfg, "videoport");
 	config.devicetype = cfg_getint(cfg, "devicetype");
 	sprintf(config.server_host, "%s", cfg_getstr(cfg, "server_addr"));
 	config.port = cfg_getint(cfg, "port");

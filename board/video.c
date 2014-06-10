@@ -38,14 +38,31 @@ void PlayStreamTo(char * host) {
 	system(gst_cmd);
 }
 
+void InitialPlayStreamTo(char * host) {
+
+	if (config.verbose)
+		printf("initial play stream to %s\n", host);
+
+	char gst_cmd[256];
+	sprintf(gst_cmd, "gst-client -p 0 set udpsink0 host string %s && gst-client -p 0 play", host);
+	system(gst_cmd);
+}
+
+void SetVideoPort(int port) {
+
+	if (config.verbose)
+		printf("set video port to %d\n", port);
+
+	char gst_cmd[100];
+	sprintf(gst_cmd, "gst-client -p 0 set udpsink0 port integer %d", port);
+	system(gst_cmd);
+}
 
 void SetBitrate(long bitrate) {
 
 	if (config.verbose)
 		printf("* set bitrate %lu\n", bitrate);
 
-	if (!clienttype)
-		return;
 	char gst_cmd[256];
 	sprintf(gst_cmd, "gst-client -p 0 null && gst-client -p 0 set dmaienc_h2640 targetbitrate integer %lu && gst-client -p 0 play", bitrate);
 	system(gst_cmd);

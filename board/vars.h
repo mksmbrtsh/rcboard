@@ -27,6 +27,18 @@ typedef struct {
 
 typedef struct {
 
+	/* bitrate */
+	long bitrate;
+
+	/* mtu for udp video stream */
+	long mtu;
+
+	/* start video to host */
+	char initialhost [IPADDRMAXLEN];	
+
+	/* video port */
+	int videoport;	
+
 	/* device type, =0 - rc, =1 - tank */
 	int devicetype;
 

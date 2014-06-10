@@ -27,6 +27,23 @@ int main(int argc, char * argv[])
 		config.verbose = 1;
 
 
+	/* set initial video stream settings */
+	if (config.bitrate)
+		SetBitrate(config.bitrate);
+
+	if (config.mtu)
+		SetMTU(config.mtu);
+
+	if (strcmp(config.initialhost, "127.0.0.1")) {
+		InitialPlayStreamTo(config.initialhost);
+	}
+
+	if (config.videoport)
+		SetVideoPort(config.videoport);
+
+	/* end set initial video stream settings */
+
+
 	if (config.role) {
 		if (config.verbose) printf("* Started as client, using server %s:%d\n", config.server_host, config.port);
 		syslog (LOG_INFO, "RcBoard started as command client");
@@ -91,9 +108,6 @@ int main(int argc, char * argv[])
 
 	/* start check alive timer */
 	set_alive_timer (ALIVETIMERPERIOD);
-
-
-	stopAll();
 
 	/* main loop */
 	while (1) {
