@@ -27,6 +27,9 @@ typedef struct {
 
 typedef struct {
 
+	/* device type, =0 - rc, =1 - tank */
+	int devicetype;
+
 	/* remote config request user */
 	char remoteconfiguser [REQUESTMAXLEN];	
 
@@ -71,6 +74,10 @@ typedef struct {
 
 Config config;
 
+/* for client host:port check */
+char * remote_host;
+char * prev_remote_host;
+int remote_port;
 
 /* alive timestamp */
 long aliveTimestamp;
@@ -104,8 +111,8 @@ WlanStatus wlanstatus;
 /* wlan params (for WiFi status)*/
 typedef struct iface_info {
 	char ssid[20];
-	char freq[30];
-	char link[50];
+	char freq[50];
+	char link[100];
 } iface_info;
 
 iface_info ifaceinfo;

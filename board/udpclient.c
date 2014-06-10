@@ -9,16 +9,11 @@
 #define BUFLEN 512
 
 struct sockaddr_in si_other;
-int udpsocket, i, slen=sizeof(si_other);
+int udpsocket, i, slen=sizeof(si_other);;
 
 char buf[BUFLEN];
 int recv_len;
 
-static char * remote_host;
-static char * prev_remote_host;
-int remote_port;
-
-void CheckRemoteClient(char * remote_host, int remote_port);
 
 /* UDP client function */
 void * udp_client_loop (void *arg) {
@@ -52,13 +47,11 @@ void * udp_client_loop (void *arg) {
 
 		if (recv_len > -1) {
 
-			parseCommand(buf);
-
 			/* get remote host:port*/
 			remote_host = inet_ntoa(si_other.sin_addr);
 			remote_port = ntohs(si_other.sin_port);
-			CheckRemoteClient(remote_host, remote_port);
-		
+
+			parseCommand(buf);
 		}
     }
 
@@ -100,13 +93,11 @@ void udp_server_loop (void * arg) {
 
 		if (recv_len > -1) {
 
-			parseCommand(buf);
-
 			/* get remote host:port*/
 			remote_host = inet_ntoa(si_other.sin_addr);
 			remote_port = ntohs(si_other.sin_port);
-			CheckRemoteClient(remote_host, remote_port);
 
+			parseCommand(buf);
 		}
         
     }

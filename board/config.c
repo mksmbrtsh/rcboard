@@ -15,6 +15,7 @@ int load_config (void) {
 
 	cfg_opt_t opts[] =
 	{
+		CFG_INT("devicetype", "0", CFGF_NONE),
 		CFG_STR("role", "server", CFGF_NONE),
 		CFG_STR("server_addr", "127.0.0.1", CFGF_NONE),
 		CFG_INT("port", "1082", CFGF_NONE),
@@ -88,7 +89,7 @@ int load_config (void) {
 		config.role = 0;
 	}
 
-
+	config.devicetype = cfg_getint(cfg, "devicetype");
 	sprintf(config.server_host, "%s", cfg_getstr(cfg, "server_addr"));
 	config.port = cfg_getint(cfg, "port");
 	config.vref = cfg_getfloat(cfg, "vref");

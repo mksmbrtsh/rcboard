@@ -93,6 +93,8 @@ int main(int argc, char * argv[])
 	set_alive_timer (ALIVETIMERPERIOD);
 
 
+	stopAll();
+
 	/* main loop */
 	while (1) {
 

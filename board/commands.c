@@ -6,7 +6,6 @@
 #include "vars.h"
 
 int lastspeed0, lastspeed1;
-int lastctrlmode;
 
 void Move (int val1, int val2);
 void stopAll ();
@@ -40,11 +39,16 @@ void parseCommand(char * buf) {
 
 			clock_gettime(CLOCK_MONOTONIC, &time);
 			aliveTimestamp = time.tv_sec;
+
+			CheckRemoteClient(remote_host, remote_port);
+
 		break;
 
 		case 1:
 			/* multichannel RC axis */
-			lastctrlmode = 0;
+
+			if (!aliveTimestamp) break;
+
 			channel =  buf[1];
 
 			/* check sum */
@@ -77,9 +81,10 @@ void parseCommand(char * buf) {
 
 		case 2:
 			/* multichannel axis for tank control (different tracks) */
-			channel =  buf[1];
 
-			lastctrlmode = 1;
+			if (!aliveTimestamp) break;
+
+			channel =  buf[1];
 
 			/* check sum */
 			checksum =  buf[0] ^ buf[1] ^ buf[2] ^ buf[3];
@@ -162,17 +167,19 @@ void stopAll () {
 	if (config.verbose) 
 		printf("* Fail safe\n");
 
-	if (lastctrlmode) {
-
-		setPWM(config.axis[0], 0, 0);
-		setPWM(config.axis[1], 0, 0);
-
-	} else {
-
-		for (i = 0; i < 4; i++) {
-			setPPM(config.axis[i], config.ppm[config.axis[i]].zero);
-		}
-
+	switch (config.devicetype) {
+		default:
+		case 0:
+			// RC
+			for (i = 0; i < 4; i++) {
+				setPPM(config.axis[i], config.ppm[config.axis[i]].zero);
+			}
+		break;
+		case 1:
+			// tank
+			setPWM(config.axis[0], 0, 0);
+			setPWM(config.axis[1], 0, 0);
+		break;
 	}
 
 	ClientDisconnected();

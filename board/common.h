@@ -12,3 +12,5 @@ void * udp_server_loop (void *arg);
 
 /* function for send message to server via UDP */
 void udp_client_send (char * message, int length);
+
+void CheckRemoteClient(char * remote_host, int remote_port);
