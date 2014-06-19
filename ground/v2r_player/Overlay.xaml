@@ -1,0 +1,17 @@
+﻿<Window x:Class="v2r_player.Overlay"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Overlay" Height="720" Width="1280" Background="Transparent" Foreground="Transparent" AllowsTransparency="True" ResizeMode="NoResize" ShowInTaskbar="False" Topmost="True" WindowStyle="None">
+    <Grid>
+        <Label x:Name="recordlabel" Content="REC" HorizontalAlignment="Left" Margin="34,52,0,0" VerticalAlignment="Top" FontSize="20" Foreground="Red" FontWeight="Bold" Visibility="Hidden"/>
+        <DockPanel x:Name="panel1" Background="Black" HorizontalAlignment="Left" Height="26" Margin="34,666,0,28" Opacity="0.5" VerticalAlignment="Stretch" Width="1195">
+            <Label x:Name="connectstatus" HorizontalAlignment="Left" VerticalAlignment="Top" Background="Transparent" FontSize="10" Foreground="White" RenderTransformOrigin="0.489,0.362" Height="26" Margin="13,0,0,0" Content=""/>
+            <Label x:Name="voltage" VerticalAlignment="Top" Background="Transparent" FontSize="10" Foreground="White" DockPanel.Dock="Top" Height="26" Content="" BorderThickness="0" Margin="12,0,0,0" HorizontalContentAlignment="Right"/>
+        </DockPanel>
+        <Image x:Name="keyarrow" HorizontalAlignment="Left" Height="33" Margin="1212,41,0,0" VerticalAlignment="Top" Width="33" Source="pack://siteoforigin:,,,/images/arrow.png" Panel.ZIndex="100" Opacity="0.7"/>
+        <Label x:Name="infolabel" HorizontalAlignment="Left" Margin="34,356,0,0" VerticalAlignment="Top" Width="1167"/>
+        <Rectangle x:Name="speedbox" HorizontalAlignment="Left" Height="3" Margin="1204,79,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="48" Opacity="0.8" Fill="#FF368AB9"/>
+        <ProgressBar x:Name="jitterbuffer" HorizontalAlignment="Left" Height="10" Margin="1179,640,0,0" VerticalAlignment="Top" Width="50" Foreground="Red" Background="Transparent" BorderBrush="Gray" Opacity="0.9"/>
+
+    </Grid>
+</Window>

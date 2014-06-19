@@ -1,0 +1,11 @@
+﻿<Window x:Class="v2r_player.intro"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="intro" Height="276.667" Width="280" Background="Black" Opacity="0.8" AllowsTransparency="True" WindowStyle="None" ResizeMode="NoResize" ShowInTaskbar="False" Topmost="True" WindowStartupLocation="CenterScreen" Icon="pack://siteoforigin:,,,/images/logo.png">
+    <Grid Loaded="Grid_Loaded">
+        <Label Content="virt   real player" HorizontalAlignment="Left" Margin="60,24,-6,0" VerticalAlignment="Top" Foreground="White" FontSize="20" FontWeight="Bold" Width="226"/>
+        <TextBlock x:Name="loadstatus" HorizontalAlignment="Left" Margin="29,84,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="175" Width="222" Foreground="#FF767373"/>
+        <Label Content="2" HorizontalAlignment="Left" Margin="95,27,0,0" VerticalAlignment="Top" Foreground="#FF0101FF" FontSize="20" Width="23" FontWeight="Bold"/>
+
+    </Grid>
+</Window>

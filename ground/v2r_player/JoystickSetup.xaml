@@ -1,0 +1,124 @@
+﻿<Window x:Class="v2r_player.JoystickSetup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Настройка джойстика" Height="438.275" Width="534" WindowStartupLocation="CenterScreen" Topmost="True" ResizeMode="NoResize" Closed="Window_Closed" Icon="pack://siteoforigin:,,,/images/logo.png">
+    <Grid Loaded="Grid_Loaded">
+
+        <GroupBox Header="Каналы передатчика" HorizontalAlignment="Left" Margin="282,57,0,0" VerticalAlignment="Top" Height="270" Width="217"/>
+        <GroupBox Header="Все оси джойстика" HorizontalAlignment="Left" Margin="17,15,0,0" VerticalAlignment="Top" Width="243" Height="173"/>
+
+        <ComboBox x:Name="deviceList" HorizontalAlignment="Left" Margin="282,24,0,0" VerticalAlignment="Top" Width="217" FontFamily="Arial" Height="23" VerticalContentAlignment="Center" SelectionChanged="DeviceChanged" ToolTip="Выбор джойстика" />
+        <Button Content="Сохранить" HorizontalAlignment="Left" Margin="420,362,0,0" VerticalAlignment="Top" Width="75" Click="Button1_Click" ToolTip="Изменения будут и доступны в основном приложении, и сохранены в конфигурационный файл"/>
+        <Button Content="Очистить" HorizontalAlignment="Left" Margin="420,290,0,0" VerticalAlignment="Top" Width="62" Click="Button_Click"/>
+
+        <Label Content="X" HorizontalAlignment="Left" Margin="32,36,0,0" VerticalAlignment="Top" Foreground="#FFAAA6A6" FontWeight="Bold"/>
+        <Label x:Name="field_X" Content="0" HorizontalAlignment="Left" Margin="52,36,0,0" VerticalAlignment="Top" MouseRightButtonUp="field_X_MouseRightButtonUp"/>
+        <Label Content="Y" HorizontalAlignment="Left" Margin="32,57,0,0" VerticalAlignment="Top" Foreground="#FFAAA6A6" FontWeight="Bold"/>
+        <Label x:Name="field_Y" Content="0" HorizontalAlignment="Left" Margin="52,57,0,0" VerticalAlignment="Top" MouseRightButtonUp="field_Y_MouseRightButtonUp"/>
+        <Label Content="Z" HorizontalAlignment="Left" Margin="32,78,0,0" VerticalAlignment="Top" Foreground="#FFAAA6A6" FontWeight="Bold"/>
+        <Label x:Name="field_Z" Content="0" HorizontalAlignment="Left" Margin="52,78,0,0" VerticalAlignment="Top" MouseRightButtonUp="field_Z_MouseRightButtonUp"/>
+        <Label Content="Rx" HorizontalAlignment="Left" Margin="87,36,0,0" VerticalAlignment="Top" Foreground="#FFAAA6A6" FontWeight="Bold"/>
+        <Label x:Name="field_Rx" Content="0" HorizontalAlignment="Left" Margin="107,36,0,0" VerticalAlignment="Top" MouseRightButtonUp="field_Rx_MouseRightButtonUp"/>
+        <Label Content="Ry" HorizontalAlignment="Left" Margin="87,57,0,0" VerticalAlignment="Top" Foreground="#FFAAA6A6" FontWeight="Bold"/>
+        <Label x:Name="field_Ry" Content="0" HorizontalAlignment="Left" Margin="107,57,0,0" VerticalAlignment="Top" MouseRightButtonUp="field_Ry_MouseRightButtonUp"/>
+        <Label Content="Rz" HorizontalAlignment="Left" Margin="87,78,0,0" VerticalAlignment="Top" Foreground="#FFAAA6A6" FontWeight="Bold"/>
+        <Label x:Name="field_Rz" Content="0" HorizontalAlignment="Left" Margin="107,78,0,0" VerticalAlignment="Top" MouseRightButtonUp="field_Rz_MouseRightButtonUp"/>
+        <Label Content="Vx" HorizontalAlignment="Left" Margin="142,36,0,0" VerticalAlignment="Top" Foreground="#FFAAA6A6" FontWeight="Bold"/>
+        <Label x:Name="field_VX" Content="0" HorizontalAlignment="Left" Margin="162,36,0,0" VerticalAlignment="Top" MouseRightButtonUp="field_VX_MouseRightButtonUp"/>
+        <Label Content="Vy" HorizontalAlignment="Left" Margin="142,57,0,0" VerticalAlignment="Top" Foreground="#FFAAA6A6" FontWeight="Bold"/>
+        <Label x:Name="field_VY" Content="0" HorizontalAlignment="Left" Margin="162,57,0,0" VerticalAlignment="Top" MouseRightButtonUp="field_VY_MouseRightButtonUp"/>
+        <Label Content="Vz" HorizontalAlignment="Left" Margin="142,78,0,0" VerticalAlignment="Top" Foreground="#FFAAA6A6" FontWeight="Bold"/>
+        <Label x:Name="field_VZ" Content="0" HorizontalAlignment="Left" Margin="162,78,0,0" VerticalAlignment="Top" MouseRightButtonUp="field_VZ_MouseRightButtonUp"/>
+        <Label Content="VRx" HorizontalAlignment="Left" Margin="189,36,0,0" VerticalAlignment="Top" Foreground="#FFAAA6A6" FontWeight="Bold"/>
+        <Label x:Name="field_VRx" Content="0" HorizontalAlignment="Left" Margin="217,36,0,0" VerticalAlignment="Top" MouseRightButtonUp="field_VRx_MouseRightButtonUp"/>
+        <Label Content="VRy" HorizontalAlignment="Left" Margin="189,57,0,0" VerticalAlignment="Top" Foreground="#FFAAA6A6" FontWeight="Bold"/>
+        <Label x:Name="field_VRy" Content="0" HorizontalAlignment="Left" Margin="217,57,0,0" VerticalAlignment="Top" MouseRightButtonUp="field_VRy_MouseRightButtonUp"/>
+        <Label Content="VRz" HorizontalAlignment="Left" Margin="189,78,0,0" VerticalAlignment="Top" Foreground="#FFAAA6A6" FontWeight="Bold"/>
+        <Label x:Name="field_VRz" Content="0" HorizontalAlignment="Left" Margin="217,78,0,0" VerticalAlignment="Top" MouseRightButtonUp="field_VRz_MouseRightButtonUp"/>
+        <Label Content="AX" HorizontalAlignment="Left" Margin="32,110,0,0" VerticalAlignment="Top" Foreground="#FFAAA6A6" FontWeight="Bold"/>
+        <Label x:Name="field_AX" Content="0" HorizontalAlignment="Left" Margin="52,110,0,0" VerticalAlignment="Top" MouseRightButtonUp="field_AX_MouseRightButtonUp"/>
+        <Label Content="AY" HorizontalAlignment="Left" Margin="32,131,0,0" VerticalAlignment="Top" Foreground="#FFAAA6A6" FontWeight="Bold"/>
+        <Label x:Name="field_AY" Content="0" HorizontalAlignment="Left" Margin="52,131,0,0" VerticalAlignment="Top" MouseRightButtonUp="field_AY_MouseRightButtonUp"/>
+        <Label Content="AZ" HorizontalAlignment="Left" Margin="32,152,0,0" VerticalAlignment="Top" Foreground="#FFAAA6A6" FontWeight="Bold"/>
+        <Label x:Name="field_AZ" Content="0" HorizontalAlignment="Left" Margin="52,152,0,0" VerticalAlignment="Top" MouseRightButtonUp="field_AZ_MouseRightButtonUp"/>
+        <Label Content="ARx" HorizontalAlignment="Left" Margin="86,110,0,0" VerticalAlignment="Top" Foreground="#FFAAA6A6" FontWeight="Bold"/>
+        <Label x:Name="field_ARx" Content="0" HorizontalAlignment="Left" Margin="112,110,0,0" VerticalAlignment="Top" MouseRightButtonUp="field_ARx_MouseRightButtonUp"/>
+        <Label Content="ARy" HorizontalAlignment="Left" Margin="86,131,0,0" VerticalAlignment="Top" Foreground="#FFAAA6A6" FontWeight="Bold"/>
+        <Label x:Name="field_ARy" Content="0" HorizontalAlignment="Left" Margin="112,131,0,0" VerticalAlignment="Top" MouseRightButtonUp="field_ARy_MouseRightButtonUp"/>
+        <Label Content="ARz" HorizontalAlignment="Left" Margin="86,152,0,0" VerticalAlignment="Top" Foreground="#FFAAA6A6" FontWeight="Bold"/>
+        <Label x:Name="field_ARz" Content="0" HorizontalAlignment="Left" Margin="112,152,0,0" VerticalAlignment="Top" MouseRightButtonUp="field_ARz_MouseRightButtonUp"/>
+        <Label Content="Fx" HorizontalAlignment="Left" Margin="142,110,0,0" VerticalAlignment="Top" Foreground="#FFAAA6A6" FontWeight="Bold"/>
+        <Label x:Name="field_FX" Content="0" HorizontalAlignment="Left" Margin="162,110,0,0" VerticalAlignment="Top" MouseRightButtonUp="field_FX_MouseRightButtonUp"/>
+        <Label Content="Fy" HorizontalAlignment="Left" Margin="142,131,0,0" VerticalAlignment="Top" Foreground="#FFAAA6A6" FontWeight="Bold"/>
+        <Label x:Name="field_FY" Content="0" HorizontalAlignment="Left" Margin="162,131,0,0" VerticalAlignment="Top" MouseRightButtonUp="field_FY_MouseRightButtonUp"/>
+        <Label Content="Fz" HorizontalAlignment="Left" Margin="142,152,0,0" VerticalAlignment="Top" Foreground="#FFAAA6A6" FontWeight="Bold"/>
+        <Label x:Name="field_FZ" Content="0" HorizontalAlignment="Left" Margin="162,152,0,0" VerticalAlignment="Top" MouseRightButtonUp="field_FZ_MouseRightButtonUp"/>
+        <Label Content="FRx" HorizontalAlignment="Left" Margin="189,110,0,0" VerticalAlignment="Top" Foreground="#FFAAA6A6" FontWeight="Bold"/>
+        <Label x:Name="field_FRx" Content="0" HorizontalAlignment="Left" Margin="217,110,0,0" VerticalAlignment="Top" MouseRightButtonUp="field_FRx_MouseRightButtonUp"/>
+        <Label Content="FRy" HorizontalAlignment="Left" Margin="189,131,0,0" VerticalAlignment="Top" Foreground="#FFAAA6A6" FontWeight="Bold"/>
+        <Label x:Name="field_FRy" Content="0" HorizontalAlignment="Left" Margin="217,131,0,0" VerticalAlignment="Top" MouseRightButtonUp="field_FRy_MouseRightButtonUp"/>
+        <Label Content="FRz" HorizontalAlignment="Left" Margin="189,152,0,0" VerticalAlignment="Top" Foreground="#FFAAA6A6" FontWeight="Bold"/>
+        <Label x:Name="field_FRz" Content="0" HorizontalAlignment="Left" Margin="217,152,0,0" VerticalAlignment="Top" MouseRightButtonUp="field_FRz_MouseRightButtonUp"/>
+        <GroupBox Header="Кнопки джойстика" HorizontalAlignment="Left" Margin="17,332,0,0" VerticalAlignment="Top" Width="243" Height="62"/>
+        <Label x:Name="buttonvalues" Content="" HorizontalAlignment="Left" Margin="33,357,0,0" VerticalAlignment="Top" Foreground="#FFAAA6A6" FontWeight="Bold" Width="210" Height="30"/>
+        <GroupBox Header="Все слайдеры джойстика" HorizontalAlignment="Left" Margin="17,195,0,0" VerticalAlignment="Top" Width="243" Height="62"/>
+        <Label Content="SL0" HorizontalAlignment="Left" Margin="32,216,0,0" VerticalAlignment="Top" Foreground="#FFAAA6A6" FontWeight="Bold"/>
+        <Label x:Name="field_SL0" Content="0" HorizontalAlignment="Left" Margin="60,216,0,0" VerticalAlignment="Top" MouseRightButtonUp="field_SL0_MouseRightButtonUp"/>
+        <Label Content="SL1" HorizontalAlignment="Left" Margin="86,216,0,0" VerticalAlignment="Top" Foreground="#FFAAA6A6" FontWeight="Bold"/>
+        <Label x:Name="field_SL1" Content="0" HorizontalAlignment="Left" Margin="114,216,0,0" VerticalAlignment="Top" MouseRightButtonUp="field_SL1_MouseRightButtonUp"/>
+
+
+        <WindowsFormsHost x:Name="wfHost" Background="black" Margin="0,0,0,0" Visibility="Hidden">
+            <WindowsFormsHost.ContextMenu>
+                <ContextMenu>
+                    <MenuItem x:Name="menuitem0"  Header="канал 1" Click="menuitem0_Click"/>
+                    <MenuItem x:Name="menuitem1"  Header="канал 2" Click="menuitem1_Click"/>
+                    <MenuItem x:Name="menuitem2"  Header="канал 3" Click="menuitem2_Click"/>
+                    <MenuItem x:Name="menuitem3"  Header="канал 4" Click="menuitem3_Click"/>
+                    <MenuItem x:Name="menuitem4"  Header="канал 5" Click="menuitem4_Click"/>
+                    <MenuItem x:Name="menuitem5"  Header="канал 6" Click="menuitem5_Click"/>
+                    <MenuItem x:Name="menuitem6"  Header="канал 7" Click="menuitem6_Click"/>
+                    <MenuItem x:Name="menuitem7"  Header="канал 8" Click="menuitem7_Click"/>
+                    <Separator/>
+                    <MenuItem x:Name="menuitem8"  Header="составная 1" Click="menuitem8_Click"/>
+                    <MenuItem x:Name="menuitem9"  Header="составная 2" Click="menuitem9_Click"/>
+                </ContextMenu>
+            </WindowsFormsHost.ContextMenu>
+        </WindowsFormsHost>
+
+        <Label Content="канал 1 (руль)" HorizontalAlignment="Left" Margin="293,78,0,0" VerticalAlignment="Top" Foreground="Black" FontWeight="Bold" Background="Transparent"/>
+        <Label x:Name="channel0" Content="0" HorizontalAlignment="Left" Margin="386,78,0,0" VerticalAlignment="Top" MouseRightButtonUp="field_VRx_MouseRightButtonUp"/>
+        <CheckBox x:Name="channel0_inv" Content="инверс" HorizontalAlignment="Left" Margin="426,82,0,0" VerticalAlignment="Top" Foreground="#FFA09E9E" Click="channel0_inv_Click"/>
+        <Label Content="канал 2   (газ)" HorizontalAlignment="Left" Margin="293,99,0,0" VerticalAlignment="Top" Foreground="Black" FontWeight="Bold"/>
+        <Label x:Name="channel1" Content="0" HorizontalAlignment="Left" Margin="386,99,0,0" VerticalAlignment="Top" MouseRightButtonUp="field_VRx_MouseRightButtonUp"/>
+        <CheckBox x:Name="channel1_inv" Content="инверс" HorizontalAlignment="Left" Margin="426,105,0,0" VerticalAlignment="Top" Foreground="#FFA09E9E" Click="channel1_inv_Click"/>
+        <Label Content="канал 3" HorizontalAlignment="Left" Margin="293,120,0,0" VerticalAlignment="Top" Foreground="Black" FontWeight="Bold"/>
+        <Label x:Name="channel2" Content="0" HorizontalAlignment="Left" Margin="386,120,0,0" VerticalAlignment="Top" MouseRightButtonUp="field_VRx_MouseRightButtonUp"/>
+        <CheckBox x:Name="channel2_inv" Content="инверс" HorizontalAlignment="Left" Margin="426,126,0,0" VerticalAlignment="Top" Foreground="#FFA09E9E"  Click="channel2_inv_Click"/>
+        <Label Content="канал 4" HorizontalAlignment="Left" Margin="293,141,0,0" VerticalAlignment="Top" Foreground="Black" FontWeight="Bold"/>
+        <Label x:Name="channel3" Content="0" HorizontalAlignment="Left" Margin="386,141,0,0" VerticalAlignment="Top" MouseRightButtonUp="field_VRx_MouseRightButtonUp"/>
+        <CheckBox x:Name="channel3_inv" Content="инверс" HorizontalAlignment="Left" Margin="426,147,0,0" VerticalAlignment="Top" Foreground="#FFA09E9E"  Click="channel3_inv_Click"/>
+        <Label Content="канал 5" HorizontalAlignment="Left" Margin="293,162,0,0" VerticalAlignment="Top" Foreground="Black" FontWeight="Bold"/>
+        <Label x:Name="channel4" Content="0" HorizontalAlignment="Left" Margin="386,162,0,0" VerticalAlignment="Top" MouseRightButtonUp="field_VRx_MouseRightButtonUp"/>
+        <CheckBox x:Name="channel4_inv" Content="инверс" HorizontalAlignment="Left" Margin="426,168,0,0" VerticalAlignment="Top" Foreground="#FFA09E9E" Click="channel4_inv_Click"/>
+        <Label Content="канал 6" HorizontalAlignment="Left" Margin="293,183,0,0" VerticalAlignment="Top" Foreground="Black" FontWeight="Bold"/>
+        <Label x:Name="channel5" Content="0" HorizontalAlignment="Left" Margin="386,183,0,0" VerticalAlignment="Top" MouseRightButtonUp="field_VRx_MouseRightButtonUp"/>
+        <CheckBox x:Name="channel5_inv" Content="инверс" HorizontalAlignment="Left" Margin="426,189,0,0" VerticalAlignment="Top" Foreground="#FFA09E9E"  Click="channel5_inv_Click"/>
+        <Label Content="канал 7" HorizontalAlignment="Left" Margin="293,204,0,0" VerticalAlignment="Top" Foreground="Black" FontWeight="Bold"/>
+        <Label x:Name="channel6" Content="0" HorizontalAlignment="Left" Margin="386,204,0,0" VerticalAlignment="Top" MouseRightButtonUp="field_VRx_MouseRightButtonUp"/>
+        <CheckBox x:Name="channel6_inv" Content="инверс" HorizontalAlignment="Left" Margin="426,210,0,0" VerticalAlignment="Top" Foreground="#FFA09E9E"  Click="channel6_inv_Click"/>
+        <Label Content="канал 8" HorizontalAlignment="Left" Margin="293,225,0,0" VerticalAlignment="Top" Foreground="Black" FontWeight="Bold"/>
+        <Label x:Name="channel7" Content="0" HorizontalAlignment="Left" Margin="386,225,0,0" VerticalAlignment="Top" MouseRightButtonUp="field_VRx_MouseRightButtonUp"/>
+        <CheckBox x:Name="channel7_inv" Content="инверс" HorizontalAlignment="Left" Margin="426,231,0,0" VerticalAlignment="Top" Foreground="#FFA09E9E"  Click="channel7_inv_Click"/>
+        <GroupBox Header="Составная ось" HorizontalAlignment="Left" Margin="17,265,0,0" VerticalAlignment="Top" Width="243" Height="62"/>
+        <Label Content="CMP0" HorizontalAlignment="Left" Margin="32,286,0,0" VerticalAlignment="Top" Foreground="#FFAAA6A6" FontWeight="Bold"/>
+        <Label x:Name="field_CMP0" Content="0" HorizontalAlignment="Left" Margin="74,286,0,0" VerticalAlignment="Top" />
+        <Label Content="CMP1" HorizontalAlignment="Left" Margin="97,286,0,0" VerticalAlignment="Top" Foreground="#FFAAA6A6" FontWeight="Bold"/>
+        <Label x:Name="field_CMP1" Content="0" HorizontalAlignment="Left" Margin="140,286,0,0" VerticalAlignment="Top" />
+        <Label Content="SUM" HorizontalAlignment="Left" Margin="173,286,0,0" VerticalAlignment="Top" Foreground="#FFAAA6A6" FontWeight="Bold"/>
+        <Label x:Name="field_SUM0" Content="0" HorizontalAlignment="Left" Margin="216,286,0,0" VerticalAlignment="Top" MouseRightButtonUp="field_SUM0_MouseRightButtonUp"/>
+        <RadioButton x:Name="ctrltype_car" Content="автомобильное" HorizontalAlignment="Left" Margin="293,273,0,0" VerticalAlignment="Top" />
+        <RadioButton x:Name="ctrltype_tank" Content="танковое" HorizontalAlignment="Left" Margin="293,294,0,0" VerticalAlignment="Top" />
+
+    </Grid>
+</Window>
